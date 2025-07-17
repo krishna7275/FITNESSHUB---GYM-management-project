@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Gym Website</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Gym Admin Dashboard</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+    
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active" data-tab="members">Members</li>
+                <li data-tab="memberships">Memberships</li>
+                <li data-tab="statistics">Statistics</li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <section id="members" class="tab-content active">
+                <div class="section-header">
+                    <h2>Members Management</h2>
+                    <button id="addMemberBtn" class="action-btn">Add New Member</button>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="memberSearch" placeholder="Search members...">
+                </div>
+                
+                <table id="membersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Membership</th>
+                            <th>Join Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Members will be loaded here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="memberships" class="tab-content">
+                <div class="section-header">
+                    <h2>Membership Plans</h2>
+                    <button id="addMembershipBtn" class="action-btn">Add New Plan</button>
+                </div>
+                
+                <table id="membershipsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Features</th>
+                            <th>Active Members</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Memberships will be loaded here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="statistics" class="tab-content">
+                <h2>Gym Statistics</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Members</h3>
+                        <p class="stat-value" id="totalMembers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Memberships</h3>
+                        <p class="stat-value" id="activeMembers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Monthly Revenue</h3>
+                        <p class="stat-value" id="monthlyRevenue">0</p>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Membership Distribution</h3>
+                    <div class="chart" id="membershipChart">
+                        <!-- Chart will be rendered here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Member Form Modal -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Add New Member</h2>
+            <form id="memberForm">
+                <input type="hidden" id="memberId">
+                <div class="form-group">
+                    <label for="memberName">Full Name</label>
+                    <input type="text" id="memberName" required>
+                </div>
+                <div class="form-group">
+                    <label for="memberEmail">Email</label>
+                    <input type="email" id="memberEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="memberPhone">Phone</label>
+                    <input type="tel" id="memberPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="membershipType">Membership Type</label>
+                    <select id="membershipType" required>
+                        <!-- Membership options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
